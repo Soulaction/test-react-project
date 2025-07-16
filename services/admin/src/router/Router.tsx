@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import {App} from "@/components/App";
 import {Suspense} from "react";
-import {About} from "@/page/About";
+import {AboutLazy} from "@/page/About/About.lazy";
 
 
 const routes = [
@@ -11,7 +11,7 @@ const routes = [
         children: [
             {
                 path: '/about',
-                element: <Suspense fallback={'loading...'}><About/></Suspense>
+                element: <Suspense fallback={'loading...'}><AboutLazy/></Suspense>
             }
         ]
     }

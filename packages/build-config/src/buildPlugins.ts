@@ -18,7 +18,6 @@ export const buildPlugins = (options: BuildOptions): Configuration['plugins'] =>
             filename: "css/[name].[contenthash:8].css",
             chunkFilename: "css/[name].[contenthash:8].css",
         }),
-        !isDev && new BundleAnalyzerPlugin(),
-        isDev && new ReactRefreshWebpackPlugin()
+        !isDev && new BundleAnalyzerPlugin()
     ].filter(Boolean);
 }

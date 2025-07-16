@@ -25,9 +25,6 @@ export default (env: EnvVariables) => {
         platform: env.platform ?? 'desktop'
     });
 
-    config.output.uniqueName = 'admin';
-    // config.output.publicPath = path.resolve(__dirname, 'public');
-
     config.plugins.push(new webpack.container.ModuleFederationPlugin({
         name: 'admin',
         filename: 'remoteEntry.js',
@@ -37,13 +34,16 @@ export default (env: EnvVariables) => {
         shared: {
             ...packageJson.dependencies,
             react: {
-                eager: true
+                eager: true,
+                requiredVersion: packageJson.dependencies['react'],
             },
             'react-dom': {
-                eager: true
+                eager: true,
+                requiredVersion: packageJson.dependencies['react-dom'],
             },
             'react-router-dom': {
-                eager: true
+                eager: true,
+                requiredVersion: packageJson.dependencies['react-router-dom'],
             },
         }
     }))

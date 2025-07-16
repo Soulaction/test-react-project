@@ -30,13 +30,11 @@ export default (env: EnvVariables) => {
     const SHOP_REMOTE_URL = env.SHOP_REMOTE_URL ?? 'http://localhost:3001'
     const ADMIN_REMOTE_URL = env.ADMIN_REMOTE_URL ?? 'http://localhost:3002'
 
-    config.output.uniqueName = 'host';
-
     config.plugins.push(new webpack.container.ModuleFederationPlugin({
         name: 'host',
         filename: 'remoteEntry.js',
         remotes: {
-            // shop: `shop@${SHOP_REMOTE_URL}/remoteEntry.js`,
+            shop: `shop@${SHOP_REMOTE_URL}/remoteEntry.js`,
             admin: `admin@${ADMIN_REMOTE_URL}/remoteEntry.js`,
         },
         shared: {

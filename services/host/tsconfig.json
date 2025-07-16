@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "noImplicitAny": true,
-    "target": "es5",
+    "target": "es2017",
     "module": "ESNext",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -18,5 +18,9 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./types",
+    "./src",
+  ]
 }

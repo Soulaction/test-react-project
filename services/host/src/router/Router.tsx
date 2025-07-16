@@ -1,19 +1,18 @@
 import {createBrowserRouter, RouteObject} from "react-router-dom";
 import {App} from "@/components/App";
-// @ts-ignore
-import shopRoutes from 'shop/Router';
-// @ts-ignore
-import adminRoutes from 'admin/Router';
-console.log(adminRoutes)
-// console.log(adminRoutes)
+
+const shopRoutes = await import('shop/Router');
+//@ts-ignore
+const adminRoutes = await import('admin/Router').then(m => m.default);
+console.log(shopRoutes);
 
 const routes: RouteObject[] = [
     {
         path: '/',
         element: <App/>,
         children: [
-            // ...shopRoutes,
-            // ...adminRoutes
+            ...shopRoutes.default,
+            ...adminRoutes
         ]
     }
 ];
